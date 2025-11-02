@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TrainingPlan.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">poo-projeto</a> &gt; <a href="index.source.html" class="el_package">MakeItFit.trainingPlan</a> &gt; <span class="el_source">TrainingPlan.java</span></div><h1>TrainingPlan.java</h1><pre class="source lang-java linenums">package MakeItFit.trainingPlan;
+
+import MakeItFit.activities.Activity;
+import MakeItFit.users.UserManager;
+import MakeItFit.utils.*;
+
+import java.io.Serializable;
+import java.util.*;
+
+/**
+ * The class TrainingPlan represents a training plan.
+ *
+ * @author  Afonso Santos (a104276), Hélder Gomes (a104100) and Pedro Pereira (a104082)
+ * @version (11052024)
+ */
+public class TrainingPlan implements Serializable, Comparable&lt;TrainingPlan&gt; {
+    private final UUID userCode;
+    private final UUID code;
+    private List&lt;MyTuple&lt;Integer, Activity&gt;&gt; activities; /* Tuple&lt;Repetitions, Activity&gt; */
+    private MakeItFitDate startDate;
+
+    /**
+     * Constructs a new TrainingPlan instance with the specified parameters.
+     *
+     * @param userCode the user code
+     * @param startDate the start date of the training plan
+     */
+<span class="fc" id="L28">    public TrainingPlan(UUID userCode, MakeItFitDate startDate) {</span>
+<span class="fc" id="L29">        this.userCode = userCode;</span>
+<span class="fc" id="L30">        this.code = UUID.randomUUID();</span>
+<span class="fc" id="L31">        this.startDate = startDate;</span>
+<span class="fc" id="L32">        this.activities = new ArrayList&lt;MyTuple&lt;Integer, Activity&gt;&gt;();</span>
+<span class="fc" id="L33">    }</span>
+
+    /**
+     * Constructs a new TrainingPlan instance with the default parameters.
+     */
+<span class="fc" id="L38">    public TrainingPlan(){</span>
+<span class="fc" id="L39">        this.userCode = new UUID(0L, 0L);</span>
+<span class="fc" id="L40">        this.code = UUID.randomUUID();</span>
+<span class="fc" id="L41">        this.startDate = new MakeItFitDate();</span>
+<span class="fc" id="L42">        this.activities = new ArrayList&lt;MyTuple&lt;Integer, Activity&gt;&gt;();</span>
+<span class="fc" id="L43">    }</span>
+
+    /**
+     * Constructs a new TrainingPlan instance as a copy of another TrainingPlan instance.
+     *
+     * @param tp the TrainingPlan instance to copy
+     */
+<span class="fc" id="L50">    public TrainingPlan(TrainingPlan tp) {</span>
+<span class="fc" id="L51">        this.userCode = tp.getUserCode();</span>
+<span class="fc" id="L52">        this.code = tp.getCode();</span>
+<span class="fc" id="L53">        this.startDate = tp.getStartDate();</span>
+<span class="fc" id="L54">        this.activities = tp.getActivities();</span>
+<span class="fc" id="L55">    }</span>
+
+    /**
+     * Gets the user code of the training plan.
+     *
+     * @return the user code
+     */
+    public UUID getUserCode() {
+<span class="fc" id="L63">        return this.userCode;</span>
+    }
+
+    /**
+     * Gets the code of the training plan.
+     *
+     * @return the code
+     */
+    public UUID getCode() {
+<span class="fc" id="L72">        return this.code;</span>
+    }
+
+    /**
+     * Gets the start date of the training plan.
+     *
+     * @return the start date
+     */
+    public MakeItFitDate getStartDate() {
+<span class="fc" id="L81">        return this.startDate;</span>
+    }
+
+    /**
+     * Gets the activities of the training plan.
+     *
+     * @return the activities
+     */
+    public List&lt;MyTuple&lt;Integer, Activity&gt;&gt; getActivities() {
+<span class="fc" id="L90">        return this.activities;</span>
+    }
+
+    /**
+     * Sets the start date of the training plan.
+     *
+     * @param startDate the new start date
+     */
+    public void setStartDate(MakeItFitDate startDate) {
+<span class="fc" id="L99">        this.startDate = startDate;</span>
+<span class="fc" id="L100">    }</span>
+
+    /**
+     * Adds an activity to the training plan.
+     *
+     * @param repetitions the number of repetitions
+     * @param activity the activity to add
+     */
+
+    public void addActivity(int repetitions, Activity activity) {
+<span class="fc bfc" id="L110" title="All 2 branches covered.">        if (repetitions &lt;= 0) {</span>
+<span class="fc" id="L111">            throw new IllegalArgumentException(&quot;Repetitions must be greater than zero.&quot;);</span>
+        }
+<span class="fc" id="L113">        this.activities.add(new MyTuple&lt;Integer, Activity&gt;(repetitions, activity));</span>
+<span class="fc" id="L114">    }</span>
+
+
+    /**
+     * Removes an activity from the training plan.
+     *
+     * @param code the code of the activity to remove
+     */
+    public void removeActivity(UUID code) {
+<span class="fc bfc" id="L123" title="All 2 branches covered.">        for (MyTuple&lt;Integer, Activity&gt; tuple : this.activities) {</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">            if (tuple.getItem2().getCode().equals(code)) {</span>
+<span class="fc" id="L125">                this.activities.remove(tuple);</span>
+<span class="fc" id="L126">                break;</span>
+            }
+<span class="fc" id="L128">        }</span>
+<span class="fc" id="L129">    }</span>
+
+    /**
+     * Updates the activities of the training plan.
+     *
+     * @param currentDate the current date
+     */
+    public void updateActivities(MakeItFitDate currentDate, float index) {
+<span class="fc bfc" id="L137" title="All 2 branches covered.">        for (MyTuple&lt;Integer, Activity&gt; tuple : this.activities) {</span>
+<span class="fc" id="L138">            Activity activity = tuple.getItem2();</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">            if(currentDate.isAfter(activity.getRealizationDate())){</span>
+<span class="fc" id="L140">                activity.updateActivity(index);</span>
+            }
+<span class="fc" id="L142">        }</span>
+<span class="fc" id="L143">    }</span>
+
+    /**
+     * Extracts the activities of the training plan.
+     *
+     * @param currentDate the current date
+     * @return a list of activities
+     */
+    public List&lt;Activity&gt; extractActivities(MakeItFitDate currentDate) {
+<span class="fc" id="L152">        List&lt;Activity&gt; activities = new ArrayList&lt;Activity&gt;();</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">        for (MyTuple&lt;Integer, Activity&gt; tuple : this.activities) {</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">            if (currentDate.isAfter(tuple.getItem2().getRealizationDate())) {</span>
+<span class="fc" id="L155">                activities.add(tuple.getItem2().clone());</span>
+            }
+<span class="fc" id="L157">        }</span>
+<span class="fc" id="L158">        return activities;</span>
+    }
+
+    /**
+     * Returns a string representation of the training plan.
+     *
+     * @return a string representation of the training plan
+     */
+    @Override
+    public String toString() {
+<span class="fc" id="L168">        return &quot;        == (Training plan details) ==&quot; + &quot;        \nTraining Plan: &quot; + this.code + &quot;\n        User Code: &quot; + this.userCode + &quot;\n        Start Date: &quot; + this.startDate + &quot;\n        Activities(Iterations / Activity): &quot; + this.activities;</span>
+    }
+
+    /**
+     * The equals method compares two training plans for equality.
+     *
+     * @param o the object to compare
+     * @return true if the training plans are equal, false otherwise
+     */
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L179" title="All 2 branches covered.">        if (o == this) {</span>
+<span class="fc" id="L180">            return true;</span>
+        }
+<span class="fc bfc" id="L182" title="All 2 branches covered.">        if (!(o instanceof TrainingPlan)) {</span>
+<span class="fc" id="L183">            return false;</span>
+        }
+<span class="fc" id="L185">        TrainingPlan trainingPlan = (TrainingPlan) o;</span>
+<span class="fc bfc" id="L186" title="All 6 branches covered.">        return this.userCode.equals(trainingPlan.getUserCode()) &amp;&amp; this.startDate.equals(trainingPlan.getStartDate()) &amp;&amp; this.activities.equals(trainingPlan.getActivities());</span>
+    }
+
+    /**
+     * Compares the training plan to another training plan based on the start date and activities.
+     *
+     * @param other the other training plan to compare
+     * @return a negative integer, zero, or a positive integer as this training plan is less than, equal to, or greater than the other training plan
+     */
+    @Override
+    public int compareTo(TrainingPlan other) {
+<span class="fc" id="L197">        int compareDate = this.startDate.compareTo(other.getStartDate());</span>
+<span class="fc bfc" id="L198" title="All 2 branches covered.">        if (compareDate == 0) {</span>
+<span class="fc" id="L199">            return this.activities.size() - other.getActivities().size();</span>
+        }
+<span class="fc" id="L201">        return compareDate;</span>
+    }
+
+    /**
+     * Creates a copy of the current TrainingPlan instance.
+     *
+     * @return A new TrainingPlan instance that is a copy of the current instance.
+     */
+    @Override
+    public TrainingPlan clone() {
+<span class="fc" id="L211">        return new TrainingPlan(this);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

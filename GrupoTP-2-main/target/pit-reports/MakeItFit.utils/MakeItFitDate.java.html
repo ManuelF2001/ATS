@@ -1,0 +1,3467 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MakeItFitDate.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package MakeItFit.utils;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.Serializable;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.time.LocalDate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The implementation for the MakeItFitDate.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author  Afonso Santos (a104276), H&#233;lder Gomes (a104100) and Pedro Pereira (a104082)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @version (11052024)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class MakeItFitDate implements Comparable&#60;MakeItFitDate&#62;, Serializable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final LocalDate date;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Default constructor of the class MakeItFitDate.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public MakeItFitDate () {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.date = LocalDate.now();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Parameterized constructor of the class MakeItFitDate.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static MakeItFitDate of(int year, int month, int dayOfMonth) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_27'>1</a>
+<span>
+
+1. of : replaced return value with null for MakeItFit/utils/MakeItFitDate::of &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new MakeItFitDate(LocalDate.of(year, month, dayOfMonth));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Parameterized constructor of the class MakeItFitDate.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private MakeItFitDate(LocalDate date) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.date = date;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Creates a MakeItFitDate from a string.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param date the string to be converted</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the MakeItFitDate</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws IllegalArgumentException if the string is not a valid date</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static MakeItFitDate fromString(String date) throws IllegalArgumentException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String[] split = date.trim().split(&#34;/&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_46'>1</a>
+<span>
+
+1. fromString : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (split.length != 3) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            throw new IllegalArgumentException(date);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            int dayOfMonth = Integer.parseInt(split[0]);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            int month = Integer.parseInt(split[1]);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            int year = Integer.parseInt(split[2]);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_55'>1</a>
+<span>
+
+1. fromString : replaced return value with null for MakeItFit/utils/MakeItFitDate::fromString &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return MakeItFitDate.of(year, month, dayOfMonth);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (NumberFormatException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new IllegalArgumentException(date);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the day of the week.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Monday is 1, Tuesday is 2, ..., Sunday is 7.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the day of the week</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getDayOfWeek() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_68'/>
+68
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_68'>1</a>
+<span>
+
+1. getDayOfWeek : replaced int return with 0 for MakeItFit/utils/MakeItFitDate::getDayOfWeek &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return this.date.getDayOfWeek().getValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the day of the month.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the day of the month</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Object getDayOfMonth() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_77'>1</a>
+<span>
+
+1. getDayOfMonth : replaced return value with null for MakeItFit/utils/MakeItFitDate::getDayOfMonth &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.date.getDayOfMonth();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the month.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the month</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getMonth(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_86'>1</a>
+<span>
+
+1. getMonth : replaced int return with 0 for MakeItFit/utils/MakeItFitDate::getMonth &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.date.getMonthValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the year.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the year</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getYear(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_95'>1</a>
+<span>
+
+1. getYear : replaced int return with 0 for MakeItFit/utils/MakeItFitDate::getYear &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.date.getYear();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the date.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the date</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public LocalDate getDate() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_104'/>
+104
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_104'>1</a>
+<span>
+
+1. getDate : replaced return value with null for MakeItFit/utils/MakeItFitDate::getDate &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.date;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Determines whether this MakeItFitDate instance is before or the same as another MakeItFitDate instance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param date the MakeItFitDate instance to compare with</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return true if this MakeItFitDate instance is before or the same as the other MakeItFitDate instance; otherwise, false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isBeforeOrSame(MakeItFitDate date) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_114'/>
+114
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_114'>3</a>
+<span>
+
+1. isBeforeOrSame : replaced boolean return with true for MakeItFit/utils/MakeItFitDate::isBeforeOrSame &rarr; SURVIVED<br/>
+
+2. isBeforeOrSame : changed conditional boundary &rarr; SURVIVED<br/>
+
+3. isBeforeOrSame : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return this.compareTo(date) &#60;= 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Determines whether this MakeItFitDate instance is before another MakeItFitDate instance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param date the MakeItFitDate instance to compare with</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return true if this MakeItFitDate instance is before the other MakeItFitDate instance; otherwise, false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isBefore(MakeItFitDate date) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_124'/>
+124
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_124'>3</a>
+<span>
+
+1. isBefore : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isBefore : negated conditional &rarr; KILLED<br/>
+
+3. isBefore : replaced boolean return with true for MakeItFit/utils/MakeItFitDate::isBefore &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return this.compareTo(date) &#60; 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Determines whether this MakeItFitDate instance is after or the same as another MakeItFitDate instance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param date the MakeItFitDate instance to compare with</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return true if this MakeItFitDate instance is after or the same as the other MakeItFitDate instance; otherwise, false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isAfterOrSame(MakeItFitDate date) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_134'/>
+134
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_134'>3</a>
+<span>
+
+1. isAfterOrSame : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. isAfterOrSame : negated conditional &rarr; KILLED<br/>
+
+3. isAfterOrSame : replaced boolean return with true for MakeItFit/utils/MakeItFitDate::isAfterOrSame &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return this.compareTo(date) &#62;= 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Determines whether this MakeItFitDate instance is after another MakeItFitDate instance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param date the MakeItFitDate instance to compare with</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return true if this MakeItFitDate instance is after the other MakeItFitDate instance; otherwise, false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isAfter(MakeItFitDate date) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_144'/>
+144
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_144'>3</a>
+<span>
+
+1. isAfter : negated conditional &rarr; KILLED<br/>
+
+2. isAfter : changed conditional boundary &rarr; KILLED<br/>
+
+3. isAfter : replaced boolean return with true for MakeItFit/utils/MakeItFitDate::isAfter &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.compareTo(date) &#62; 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Adds days to the date.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param days the number of days to add</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_151'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the new date</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public MakeItFitDate plusDays(int days) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_154'/>
+154
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_154'>1</a>
+<span>
+
+1. plusDays : replaced return value with null for MakeItFit/utils/MakeItFitDate::plusDays &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new MakeItFitDate(this.date.plusDays(days));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_157'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Checks if two dates are equal.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param o the other date</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return true if the dates are equal; otherwise, false</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_165'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        MakeItFitDate date = (MakeItFitDate) o;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_166'/>
+166
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_166'>2</a>
+<span>
+
+1. equals : replaced boolean return with true for MakeItFit/utils/MakeItFitDate::equals &rarr; KILLED<br/>
+
+2. equals : replaced boolean return with false for MakeItFit/utils/MakeItFitDate::equals &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.date.isEqual(date.getDate());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Calculates the distance between two dates.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param date the other date</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the distance between the two dates</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_175'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int distance(MakeItFitDate date) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_176'/>
+176
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_176'>2</a>
+<span>
+
+1. distance : replaced int return with 0 for MakeItFit/utils/MakeItFitDate::distance &rarr; KILLED<br/>
+
+2. distance : Replaced long subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return (int) Math.abs(this.date.toEpochDay() - date.date.toEpochDay());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_180'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns a string representation of the MakeItFitDate.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_181'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return a string representation of the MakeItFitDate</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_183'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_184'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_186'/>
+186
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_186'>1</a>
+<span>
+
+1. toString : replaced return value with &#34;&#34; for MakeItFit/utils/MakeItFitDate::toString &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return String.format(&#34;%02d/%02d/%04d&#34;, this.getDayOfMonth(), this.getMonth(), this.getYear());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_188'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_189'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Compares this MakeItFitDate instance with another MakeItFitDate instance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_191'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param object the MakeItFitDate instance to compare with</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_193'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return a negative integer, zero, or a positive integer as this MakeItFitDate instance is before, the same as, or after the other MakeItFitDate instance</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_194'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_195'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_196'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int compareTo(MakeItFitDate object) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_197'/>
+197
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_197'>1</a>
+<span>
+
+1. compareTo : replaced int return with 0 for MakeItFit/utils/MakeItFitDate::compareTo &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.date.compareTo(object.date);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_198'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_199'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_200'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_201'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Creates a copy of the current MakeItFitDate instance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_202'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_203'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return A new MakeItFitDate instance that is a copy of the current instance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_204'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_205'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_206'/>
+206
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_206'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public MakeItFitDate clone() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_207'/>
+207
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_207'>1</a>
+<span>
+
+1. clone : replaced return value with null for MakeItFit/utils/MakeItFitDate::clone &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new MakeItFitDate(this.date);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_208'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_209'/>
+209
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_209'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>of<br/><b>Killed by : </b>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_44_maxActivitiesPerDay_alto()]</span></span> replaced return value with null for MakeItFit/utils/MakeItFitDate::of &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>fromString<br/><b>Killed by : </b>JUnit_Test.TimeManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TimeManagerTest]/[method:testInvalidDateInput()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>fromString<br/><b>Killed by : </b>JUnit_Test.TimeManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TimeManagerTest]/[method:testAdvanceTimeWithBoundaryValues()]</span></span> replaced return value with null for MakeItFit/utils/MakeItFitDate::fromString &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_68'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDayOfWeek<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for MakeItFit/utils/MakeItFitDate::getDayOfWeek &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDayOfMonth<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()]</span></span> replaced return value with null for MakeItFit/utils/MakeItFitDate::getDayOfMonth &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMonth<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()]</span></span> replaced int return with 0 for MakeItFit/utils/MakeItFitDate::getMonth &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getYear<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()]</span></span> replaced int return with 0 for MakeItFit/utils/MakeItFitDate::getYear &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_104'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDate<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_2()]</span></span> replaced return value with null for MakeItFit/utils/MakeItFitDate::getDate &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_114'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isBeforeOrSame<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for MakeItFit/utils/MakeItFitDate::isBeforeOrSame &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isBeforeOrSame<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isBeforeOrSame<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_124'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isBefore<br/><b>Killed by : </b>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithOverlappingActivities()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isBefore<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isBefore<br/><b>Killed by : </b>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithOverlappingActivities()]</span></span> replaced boolean return with true for MakeItFit/utils/MakeItFitDate::isBefore &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_134'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAfterOrSame<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAfterOrSame<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()]</span></span> replaced boolean return with true for MakeItFit/utils/MakeItFitDate::isAfterOrSame &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAfterOrSame<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_144'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAfter<br/><b>Killed by : </b>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithDatesAndNoActivities()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAfter<br/><b>Killed by : </b>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithActivitiesOutsideDateRange()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAfter<br/><b>Killed by : </b>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_8_data2_antes_ou_igual()]</span></span> replaced boolean return with true for MakeItFit/utils/MakeItFitDate::isAfter &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_154'>154</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_154'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>plusDays<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_2()]</span></span> replaced return value with null for MakeItFit/utils/MakeItFitDate::plusDays &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_166'>166</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_166'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>test_Hypothesis.TrainingPlanMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanMutationTest]/[method:testEqualsAllBranches()]</span></span> replaced boolean return with true for MakeItFit/utils/MakeItFitDate::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_2()]</span></span> replaced boolean return with false for MakeItFit/utils/MakeItFitDate::equals &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_176'>176</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_176'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>distance<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()]</span></span> replaced int return with 0 for MakeItFit/utils/MakeItFitDate::distance &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>distance<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()]</span></span> Replaced long subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_186'>186</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_186'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()]</span></span> replaced return value with &#34;&#34; for MakeItFit/utils/MakeItFitDate::toString &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_197'>197</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_197'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>JUnit_Test.ActivityTest.[engine:junit-jupiter]/[class:JUnit_Test.ActivityTest]/[method:testComparison()]</span></span> replaced int return with 0 for MakeItFit/utils/MakeItFitDate::compareTo &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@26bd2d7d_207'>207</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@26bd2d7d_207'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>clone<br/><b>Killed by : </b>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()]</span></span> replaced return value with null for MakeItFit/utils/MakeItFitDate::clone &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>test_Hypothesis.TrainingPlanMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanMutationTest]/[method:testToStringNotEmpty()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_6()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_5()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_1()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_7()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_2()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_3()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_9()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_0()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_8()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testMakeItFitDate_4()] (0 ms)</li><li>JUnit_Test.PushUpTest.[engine:junit-jupiter]/[class:JUnit_Test.PushUpTest]/[method:testToString()] (0 ms)</li><li>JUnit_Test.WeightSquatTest.[engine:junit-jupiter]/[class:JUnit_Test.WeightSquatTest]/[method:testToStringMethod()] (0 ms)</li><li>JUnit_Test.PushUpTest.[engine:junit-jupiter]/[class:JUnit_Test.PushUpTest]/[method:testToStringEdgeCases()] (0 ms)</li><li>test_Hypothesis.ActivityGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityGeneratedTest]/[method:test_Running_5()] (0 ms)</li><li>test_Hypothesis.ActivityGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityGeneratedTest]/[method:test_Running_9()] (0 ms)</li><li>test_Hypothesis.ActivityGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityGeneratedTest]/[method:test_Running_7()] (0 ms)</li><li>test_Hypothesis.ActivityGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityGeneratedTest]/[method:test_Running_8()] (0 ms)</li><li>test_Hypothesis.TrainingPlanGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanGeneratedTest]/[method:testTrainingPlan_0()] (0 ms)</li><li>test_Hypothesis.ActivityGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityGeneratedTest]/[method:test_Running_1()] (1 ms)</li><li>test_Hypothesis.TrainingPlanGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanGeneratedTest]/[method:testTrainingPlan_1()] (0 ms)</li><li>test_Hypothesis.ActivityTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityTest]/[method:testGettersAndEqualsAndCompareTo()] (0 ms)</li><li>test_Hypothesis.ActivityGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityGeneratedTest]/[method:test_Running_4()] (1 ms)</li><li>test_Hypothesis.TrainingPlanGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanGeneratedTest]/[method:testTrainingPlan_2()] (0 ms)</li><li>test_Hypothesis.ActivityGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityGeneratedTest]/[method:test_WeightSquat_6()] (1 ms)</li><li>test_Hypothesis.TrainingPlanGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanGeneratedTest]/[method:testTrainingPlan_6()] (1 ms)</li><li>test_Hypothesis.ActivityGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityGeneratedTest]/[method:test_Trail_3()] (1 ms)</li><li>JUnit_Test.ActivityTest.[engine:junit-jupiter]/[class:JUnit_Test.ActivityTest]/[method:testToString()] (8 ms)</li><li>test_Hypothesis.ActivityGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityGeneratedTest]/[method:test_Trail_2()] (1 ms)</li><li>JUnit_Test.MakeItFitControllerTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitControllerTest]/[method:testCreateTrainingPlan()] (0 ms)</li><li>test_Hypothesis.TrainingPlanGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanGeneratedTest]/[method:testTrainingPlan_5()] (1 ms)</li><li>test_Hypothesis.TrainingPlanGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanGeneratedTest]/[method:testTrainingPlan_9()] (0 ms)</li><li>test_Hypothesis.TrainingPlanGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanGeneratedTest]/[method:testTrainingPlan_7()] (1 ms)</li><li>test_Hypothesis.ActivityGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.ActivityGeneratedTest]/[method:test_Trail_0()] (7 ms)</li><li>test_Hypothesis.TrainingPlanGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanGeneratedTest]/[method:testTrainingPlan_8()] (1 ms)</li><li>JUnit_Test.MakeItFitControllerTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitControllerTest]/[method:testRemoveActivityFromTrainingPlan()] (1 ms)</li><li>test_Hypothesis.TrainingPlanGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanGeneratedTest]/[method:testTrainingPlan_3()] (1 ms)</li><li>test_Hypothesis.TrainingPlanGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanGeneratedTest]/[method:testTrainingPlan_4()] (1 ms)</li><li>JUnit_Test.MakeItFitControllerTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitControllerTest]/[method:testAddActivityToUser()] (4 ms)</li><li>JUnit_Test.MakeItFitControllerTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitControllerTest]/[method:testUpdateSystemDate()] (2 ms)</li><li>JUnit_Test.MakeItFitControllerTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitControllerTest]/[method:testGetTrainingPlansFromUser()] (47 ms)</li><li>JUnit_Test.ActivityTest.[engine:junit-jupiter]/[class:JUnit_Test.ActivityTest]/[method:testComparisonWithSameDateDifferentDuration()] (0 ms)</li><li>JUnit_Test.ActivityTest.[engine:junit-jupiter]/[class:JUnit_Test.ActivityTest]/[method:testComparison()] (0 ms)</li><li>test_Hypothesis.TrainingPlanMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanMutationTest]/[method:testCompareToBranchesAndMutants()] (0 ms)</li><li>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithDatesAndNoActivities()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_8_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoDidTheMostActivities_InvalidDates_4_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_4_data2_antes_ou_igual()] (0 ms)</li><li>JUnit_Test.TrainingPlanTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanTest]/[method:testCompareToTrainingPlan()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyKMsDone_InvalidDates_6_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_6_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyAltimetryDone_InvalidDates_4_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoDidTheMostActivities_InvalidDates_0_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyKMsDone_InvalidDates_1_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyKMsDone_InvalidDates_4_data2_antes_ou_igual()] (0 ms)</li><li>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithInvalidDates()] (1 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyAltimetryDone_InvalidDates_7_data2_antes_ou_igual()] (0 ms)</li><li>JUnit_Test.HowManyKMsDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyKMsDoneTest]/[method:testExecuteQueryWithEmptyActivityList()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyKMsDone_InvalidDates_0_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoDidTheMostActivities_InvalidDates_1_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyKMsDone_InvalidDates_7_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoDidTheMostActivities_InvalidDates_8_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoDidTheMostActivities_InvalidDates_7_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyAltimetryDone_InvalidDates_1_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoDidTheMostActivities_InvalidDates_6_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyAltimetryDone_InvalidDates_0_data2_antes_ou_igual()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyKMsDone_InvalidDates_8_data2_antes_ou_igual()] (1 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyAltimetryDone_InvalidDates_6_data2_antes_ou_igual()] (1 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_1_data2_antes_ou_igual()] (1 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_0_data2_antes_ou_igual()] (1 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_7_data2_antes_ou_igual()] (1 ms)</li><li>test_Hypothesis.TrainingPlanMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanMutationTest]/[method:testUpdateActivitiesCallsUpdateActivityAndConditional()] (0 ms)</li><li>JUnit_Test.TrainingPlanTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanTest]/[method:testUpdateActivities()] (0 ms)</li><li>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithDates()] (0 ms)</li><li>JUnit_Test.HowManyKMsDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyKMsDoneTest]/[method:testExecuteQueryWithDates()] (0 ms)</li><li>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithActivitiesOutsideDateRange()] (0 ms)</li><li>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithZeroElevationActivities()] (0 ms)</li><li>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithOverlappingActivities()] (0 ms)</li><li>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithNegativeElevationActivities()] (0 ms)</li><li>JUnit_Test.TrainingPlanTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanTest]/[method:testExtractActivitiesWithNoMatchingDate()] (0 ms)</li><li>test_Hypothesis.TrainingPlanMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanMutationTest]/[method:testExtractActivitiesConditionalAndReturn()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyAltimetryDone_InvalidDates_8_data2_antes_ou_igual()] (7 ms)</li><li>JUnit_Test.MakeItFitTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitTest]/[method:testExecuteQueryHowManyAltimetryDoneWithDates()] (0 ms)</li><li>JUnit_Test.MakeItFitTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitTest]/[method:testExecuteQueryHowManyKMsDoneWithDates()] (0 ms)</li><li>JUnit_Test.MakeItFitControllerTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitControllerTest]/[method:testExecuteQueryHowManyKMsDoneWithoutDates()] (0 ms)</li><li>JUnit_Test.MakeItFitControllerTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitControllerTest]/[method:testExecuteQueryHowManyAltimetryDoneWithoutDates()] (0 ms)</li><li>JUnit_Test.MakeItFitControllerTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitControllerTest]/[method:testRemoveActivityFromUser()] (1 ms)</li><li>test_Hypothesis.QueriesManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesManagerGeneratedTest]/[method:testQueriesManager_6()] (3 ms)</li><li>test_Hypothesis.QueriesManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesManagerGeneratedTest]/[method:testQueriesManager_3()] (3 ms)</li><li>test_Hypothesis.QueriesManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesManagerGeneratedTest]/[method:testQueriesManager_4()] (3 ms)</li><li>test_Hypothesis.QueriesManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesManagerGeneratedTest]/[method:testQueriesManager_5()] (4 ms)</li><li>test_Hypothesis.QueriesManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesManagerGeneratedTest]/[method:testQueriesManager_2()] (3 ms)</li><li>test_Hypothesis.QueriesManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesManagerGeneratedTest]/[method:testQueriesManager_0()] (4 ms)</li><li>test_Hypothesis.QueriesManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesManagerGeneratedTest]/[method:testQueriesManager_8()] (3 ms)</li><li>test_Hypothesis.QueriesManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesManagerGeneratedTest]/[method:testQueriesManager_9()] (4 ms)</li><li>test_Hypothesis.QueriesManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesManagerGeneratedTest]/[method:testQueriesManager_7()] (4 ms)</li><li>test_Hypothesis.QueriesManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesManagerGeneratedTest]/[method:testQueriesManager_1()] (3 ms)</li><li>test_Hypothesis.TrainingPlanManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanManagerGeneratedTest]/[method:testTrainingPlanManager_6()] (0 ms)</li><li>test_Hypothesis.TrainingPlanManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanManagerGeneratedTest]/[method:testTrainingPlanManager_4()] (0 ms)</li><li>test_Hypothesis.TrainingPlanManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanManagerGeneratedTest]/[method:testTrainingPlanManager_1()] (0 ms)</li><li>test_Hypothesis.TrainingPlanManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanManagerGeneratedTest]/[method:testTrainingPlanManager_8()] (0 ms)</li><li>test_Hypothesis.TrainingPlanManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanManagerGeneratedTest]/[method:testTrainingPlanManager_2()] (0 ms)</li><li>test_Hypothesis.TrainingPlanManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanManagerGeneratedTest]/[method:testTrainingPlanManager_7()] (0 ms)</li><li>JUnit_Test.MakeItFitControllerTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitControllerTest]/[method:testConstructTrainingPlanByObjectives()] (3 ms)</li><li>test_Hypothesis.TrainingPlanManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanManagerGeneratedTest]/[method:testTrainingPlanManager_9()] (3 ms)</li><li>test_Hypothesis.TrainingPlanManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanManagerGeneratedTest]/[method:testTrainingPlanManager_3()] (0 ms)</li><li>test_Hypothesis.TrainingPlanManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanManagerGeneratedTest]/[method:testTrainingPlanManager_5()] (6 ms)</li><li>JUnit_Test.MakeItFitTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitTest]/[method:testConstructTrainingPlanByObjectives()] (1 ms)</li><li>test_Hypothesis.TrainingPlanManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanManagerGeneratedTest]/[method:testTrainingPlanManager_0()] (10 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_2()] (0 ms)</li><li>JUnit_Test.TimeManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TimeManagerTest]/[method:testAdvanceTimeWithBoundaryValues()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_7()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_3()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_8()] (0 ms)</li><li>JUnit_Test.TimeManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TimeManagerTest]/[method:testGetCurrentDate()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_9()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_4()] (0 ms)</li><li>JUnit_Test.ActivityTest.[engine:junit-jupiter]/[class:JUnit_Test.ActivityTest]/[method:testConstructorAndGetters()] (0 ms)</li><li>JUnit_Test.TimeManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TimeManagerTest]/[method:testAdvanceTimeMultipleCalls()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_6()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_5()] (0 ms)</li><li>JUnit_Test.TimeManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TimeManagerTest]/[method:testAdvanceTimeWithLargeDays()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_1()] (0 ms)</li><li>JUnit_Test.TimeManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TimeManagerTest]/[method:testAdvanceTime()] (0 ms)</li><li>JUnit_Test.TimeManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TimeManagerTest]/[method:testAdvanceTimeWithZeroDays()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:defaultConstructorInitializesStartDateToCurrentDate()] (0 ms)</li><li>test_Hypothesis.TimeManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TimeManagerGeneratedTest]/[method:testTimeManager_0()] (1 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testUpdateTrainingPlan()] (0 ms)</li><li>JUnit_Test.ActivityTest.[engine:junit-jupiter]/[class:JUnit_Test.ActivityTest]/[method:testClone()] (0 ms)</li><li>test_Hypothesis.TrainingPlanMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanMutationTest]/[method:testEqualsAllBranches()] (0 ms)</li><li>JUnit_Test.TrainingPlanTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanTest]/[method:testEqualsTrainingPlan()] (0 ms)</li><li>JUnit_Test.TrainingPlanTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanTest]/[method:testCloneTrainingPlan()] (1 ms)</li><li>JUnit_Test.MakeItFitTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitTest]/[method:testUpdateTrainingPlan()] (2 ms)</li><li>JUnit_Test.TrainingPlanTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanTest]/[method:testUpdateActivitiesWithNoActivities()] (0 ms)</li><li>JUnit_Test.MakeItFitTest.[engine:junit-jupiter]/[class:JUnit_Test.MakeItFitTest]/[method:testUpdateSystem()] (0 ms)</li><li>JUnit_Test.TimeManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TimeManagerTest]/[method:testInvalidDateInput()] (0 ms)</li><li>JUnit_Test.TimeManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TimeManagerTest]/[method:testAdvanceTimeWithNegativeDays()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testExtractActivitiesWithNoMatchingUserCode()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testRemoveNonExistentTrainingPlan()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testGetTrainingPlansFromUserWithNoPlans()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testGetTrainingPlanWithInvalidCode()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testUpdateNonExistentTrainingPlan()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testRemoveActivityFromNonExistentTrainingPlan()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:defaultConstructorInitializesActivitiesToEmptyList()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testRemoveTrainingPlan()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:defaultConstructorInitializesUserCodeToZeroUUID()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testCreateTrainingPlanWithNullArguments()] (1 ms)</li><li>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithNoActivities()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testInsertDuplicateTrainingPlan()] (0 ms)</li><li>JUnit_Test.TrainingPlanTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanTest]/[method:testAddActivityWithInvalidRepetitions()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:defaultConstructorInitializesCodeToNonNullUUID()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testAddActivityToNonExistentTrainingPlan()] (1 ms)</li><li>JUnit_Test.TrainingPlanTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanTest]/[method:testAddActivity()] (0 ms)</li><li>JUnit_Test.TrainingPlanTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanTest]/[method:testRemoveNonExistentActivity()] (0 ms)</li><li>JUnit_Test.TrainingPlanManagerTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanManagerTest]/[method:testCreateAndInsertTrainingPlan()] (1 ms)</li><li>JUnit_Test.HowManyKMsDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyKMsDoneTest]/[method:testExecuteQueryWithoutDates()] (0 ms)</li><li>JUnit_Test.TrainingPlanTest.[engine:junit-jupiter]/[class:JUnit_Test.TrainingPlanTest]/[method:testRemoveActivity()] (0 ms)</li><li>JUnit_Test.ActivityTest.[engine:junit-jupiter]/[class:JUnit_Test.ActivityTest]/[method:testCloneWithModifiedOriginal()] (1 ms)</li><li>JUnit_Test.HowManyAltimetryDoneTest.[engine:junit-jupiter]/[class:JUnit_Test.HowManyAltimetryDoneTest]/[method:testExecuteQueryWithoutDates()] (13 ms)</li><li>JUnit_Test.UserViewTest.[engine:junit-jupiter]/[class:JUnit_Test.UserViewTest]/[method:testAddActivityToUser()] (4 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_58_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_29_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_33_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_1_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_44_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_6_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_53_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_93_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_9_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_46_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_23_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_13_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_89_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_92_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_42_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_45_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_5_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_98_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_20_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_26_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_73_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_22_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_15_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_79_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_30_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_48_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_2_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_0_userCode_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_80_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_39_minimumCaloricWaste_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_55_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_3_minimumCaloricWaste_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_76_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_32_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_83_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_72_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_65_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_70_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_75_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_91_minimumCaloricWaste_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_35_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_19_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_27_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_90_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_50_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_97_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_34_minimumCaloricWaste_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_8_minimumCaloricWaste_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_67_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_47_minimumCaloricWaste_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_10_minimumCaloricWaste_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_24_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_41_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_37_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_12_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_68_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_4_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_69_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_66_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_18_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_62_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_78_minimumCaloricWaste_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_81_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_88_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_51_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_84_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_85_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_86_maxDifferentActivities_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_57_minimumCaloricWaste_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_17_maxActivitiesPerDay_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_87_weeklyRecurrence_alto()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_96_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_61_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_56_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_49_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoDidTheMostActivities_InvalidDates_3_data1_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_21_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_2_data1_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_40_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_11_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_9_data1_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_54_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_5_data2_null()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyKMsDone_InvalidDates_9_data1_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_64_maxActivitiesPerDay_alto()] (1 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_43_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyKMsDone_InvalidDates_2_data1_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_82_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyAltimetryDone_InvalidDates_3_data1_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_95_maxDifferentActivities_negativo()] (1 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_71_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyAltimetryDone_InvalidDates_9_data1_null()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoDidTheMostActivities_InvalidDates_5_data2_null()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyKMsDone_InvalidDates_5_data2_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_60_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoDidTheMostActivities_InvalidDates_9_data1_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_99_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyKMsDone_InvalidDates_3_data1_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_63_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyAltimetryDone_InvalidDates_2_data1_null()] (0 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_28_repetitions_zero_ou_negativo()] (0 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoBurnsMoreCalories_InvalidDates_3_data1_null()] (1 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_59_repetitions_zero_ou_negativo()] (1 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testWhoDidTheMostActivities_InvalidDates_2_data1_null()] (1 ms)</li><li>test_Hypothesis.QueriesInvalidDateGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.QueriesInvalidDateGeneratedTest]/[method:testHowManyAltimetryDone_InvalidDates_5_data2_null()] (1 ms)</li><li>test_Hypothesis.TrainingPlanInvalidGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.TrainingPlanInvalidGeneratedTest]/[method:testPlanoInvalido_74_repetitions_zero_ou_negativo()] (1 ms)</li><li>test_Hypothesis.MakeItFitMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.MakeItFitMutationTest]/[method:testTrainingPlanCRUD()] (0 ms)</li><li>test_Hypothesis.MakeItFitMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.MakeItFitMutationTest]/[method:testUpdateSystem()] (0 ms)</li><li>test_Hypothesis.MakeItFitMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.MakeItFitMutationTest]/[method:testGetAllTrainingPlansAndGetTrainingPlansFromUser()] (0 ms)</li><li>test_Hypothesis.MakeItFitMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.MakeItFitMutationTest]/[method:testAddAndRemoveActivityToTrainingPlan()] (0 ms)</li><li>test_Hypothesis.MakeItFitMutationTest.[engine:junit-jupiter]/[class:test_Hypothesis.MakeItFitMutationTest]/[method:testAddAndRemoveActivityToUser()] (0 ms)</li><li>test_Hypothesis.UserGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserGeneratedTest]/[method:testUser_3()] (0 ms)</li><li>test_Hypothesis.UserGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserGeneratedTest]/[method:testUser_6()] (0 ms)</li><li>test_Hypothesis.UserGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserGeneratedTest]/[method:testUser_4()] (0 ms)</li><li>test_Hypothesis.UserGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserGeneratedTest]/[method:testUser_8()] (0 ms)</li><li>test_Hypothesis.UserGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserGeneratedTest]/[method:testUser_7()] (0 ms)</li><li>test_Hypothesis.UserGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserGeneratedTest]/[method:testUser_9()] (0 ms)</li><li>test_Hypothesis.UserGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserGeneratedTest]/[method:testUser_0()] (0 ms)</li><li>test_Hypothesis.UserGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserGeneratedTest]/[method:testUser_5()] (0 ms)</li><li>test_Hypothesis.UserManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserManagerGeneratedTest]/[method:testUserManager_5()] (0 ms)</li><li>test_Hypothesis.UserManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserManagerGeneratedTest]/[method:testUserManager_0()] (0 ms)</li><li>test_Hypothesis.UserGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserGeneratedTest]/[method:testUser_2()] (0 ms)</li><li>test_Hypothesis.UserManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserManagerGeneratedTest]/[method:testUserManager_6()] (0 ms)</li><li>test_jqwil.ActivityProperties.[engine:jqwik]/[class:test_jqwil.ActivityProperties]/[property:expectedDurationAlwaysPositive(MakeItFit.activities.implementation.Running)] (20 ms)</li><li>test_Hypothesis.UserManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserManagerGeneratedTest]/[method:testUserManager_8()] (0 ms)</li><li>test_jqwil.ActivityProperties.[engine:jqwik]/[class:test_jqwil.ActivityProperties]/[property:caloricWasteShouldIncreaseWithIndex(MakeItFit.activities.implementation.Running)] (21 ms)</li><li>test_Hypothesis.UserManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserManagerGeneratedTest]/[method:testUserManager_1()] (0 ms)</li><li>test_jqwil.ActivityProperties.[engine:jqwik]/[class:test_jqwil.ActivityProperties]/[property:weightSquatCaloriesIncreaseWithWeight(MakeItFit.activities.implementation.WeightSquat)] (21 ms)</li><li>test_jqwil.ActivityProperties.[engine:jqwik]/[class:test_jqwil.ActivityProperties]/[property:pushupCaloriesShouldBeNonNegative(MakeItFit.activities.implementation.PushUp)] (21 ms)</li><li>test_Hypothesis.UserManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserManagerGeneratedTest]/[method:testUserManager_3()] (0 ms)</li><li>test_Hypothesis.UserManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserManagerGeneratedTest]/[method:testUserManager_7()] (0 ms)</li><li>test_Hypothesis.UserManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserManagerGeneratedTest]/[method:testUserManager_9()] (0 ms)</li><li>test_Hypothesis.UserGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserGeneratedTest]/[method:testUser_1()] (4 ms)</li><li>test_Hypothesis.UserManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserManagerGeneratedTest]/[method:testUserManager_4()] (0 ms)</li><li>test_jqwil.ActivityProperties.[engine:jqwik]/[class:test_jqwil.ActivityProperties]/[property:runningDistanceNonNegative(MakeItFit.activities.implementation.Running)] (24 ms)</li><li>test_Hypothesis.UserManagerGeneratedTest.[engine:junit-jupiter]/[class:test_Hypothesis.UserManagerGeneratedTest]/[method:testUserManager_2()] (0 ms)</li><li>test_jqwil.ActivityProperties.[engine:jqwik]/[class:test_jqwil.ActivityProperties]/[property:cloneShouldBeEqualButNotSameInstance(MakeItFit.activities.implementation.PushUp)] (24 ms)</li><li>test_jqwil.ActivityProperties.[engine:jqwik]/[class:test_jqwil.ActivityProperties]/[property:weightSquatZeroWeightMeansZeroCalories(MakeItFit.activities.implementation.WeightSquat)] (35 ms)</li><li>test_jqwil.ActivityProperties.[engine:jqwik]/[class:test_jqwil.ActivityProperties]/[property:runningSpeedNonNegative(MakeItFit.activities.implementation.Running)] (228 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.3
+
+</body>
+</html>

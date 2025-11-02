@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">poo-projeto</a> &gt; <a href="index.source.html" class="el_package">MakeItFit.users</a> &gt; <span class="el_source">UserManager.java</span></div><h1>UserManager.java</h1><pre class="source lang-java linenums">package MakeItFit.users;
+
+import MakeItFit.activities.Activity;
+import MakeItFit.exceptions.ExistingEntityConflictException;
+import MakeItFit.exceptions.EntityDoesNotExistException;
+import MakeItFit.exceptions.InvalidTypeException;
+import MakeItFit.users.types.*;
+import MakeItFit.utils.MakeItFitDate;
+
+import java.io.Serializable;
+import java.util.*;
+
+/**
+ * The UserManager class to manage all the users.
+ *
+ * @author  Afonso Santos (a104276), Hélder Gomes (a104100) and Pedro Pereira (a104082)
+ * @version (11052024)
+ */
+public class UserManager implements Serializable {
+
+    private Map&lt;UUID, User&gt; usersByCode;
+    private Map&lt;String, User&gt; usersByEmail;
+
+<span class="fc" id="L24">    public UserManager() {</span>
+<span class="fc" id="L25">        this.usersByCode = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L26">        this.usersByEmail = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L27">    }</span>
+
+    /**
+     * Creates a user with the specified parameters.
+     *
+     * @param name the name of the user
+     * @param age the age of the user
+     * @param gender the gender of the user
+     * @param weight the weight of the user
+     * @param height the height of the user
+     * @param bpm the heart rate (bpm) of the user
+     * @param level the fitness level of the user
+     * @param address the address of the user
+     * @param phone the phone number of the user
+     * @param email the email address of the user
+     * @param frequency the training frequency of the user
+     * @param type the type of the user
+     * @return the created user
+     * @throws IllegalArgumentException if any argument is null or invalid
+     */
+    public User createUser(String name, int age, Gender gender, float weight, int height, int bpm, int level, String address, String phone, String email, int frequency, String type) throws IllegalArgumentException, InvalidTypeException {
+
+<span class="pc bpc" id="L49" title="1 of 8 branches missed.">        if (name == null || address == null || phone == null || email == null) {</span>
+<span class="fc" id="L50">            throw new IllegalArgumentException(&quot;Invalid input: name, address, phone, or email cannot be null.&quot;);</span>
+        }
+<span class="pc bpc" id="L52" title="3 of 10 branches missed.">        if (age &lt;= 0 || weight &lt;= 0 || height &lt;= 0 || bpm &lt;= 0 || level &lt; 0) {</span>
+<span class="fc" id="L53">            throw new IllegalArgumentException(&quot;Invalid input: age, weight, height, bpm, and level must be strictly positive.&quot;);</span>
+        }
+
+
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (type.equals(&quot;Amateur&quot;)) {</span>
+<span class="fc" id="L58">           return new Amateur(name, age, gender, weight, height, bpm, level, address, phone, email);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        } else if (type.equals(&quot;Occasional&quot;)) {</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">            if (frequency &lt;= 0) {</span>
+<span class="nc" id="L61">                throw new IllegalArgumentException(&quot;Invalid input: frequency must be &gt; 0 for Occasional users.&quot;);</span>
+            }
+<span class="fc" id="L63">            return new Occasional(name, age, gender, weight, height, bpm, level, address, phone, email, frequency);</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        } else if (type.equals(&quot;Professional&quot;)) {</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">            if (frequency &lt;= 0) {</span>
+<span class="nc" id="L66">                throw new IllegalArgumentException(&quot;Invalid input: frequency must be &gt; 0 for Professional users.&quot;);</span>
+            }
+<span class="fc" id="L68">            return new Professional(name, age, gender, weight, height, bpm, level, address, phone, email, frequency);</span>
+        } else {
+<span class="nc" id="L70">            throw new InvalidTypeException(type);</span>
+        }
+    }
+
+    /**
+     * Inserts a user into the manager.
+     *
+     * @param user the user to be inserted
+     * @throws ExistingEntityConflictException if a user with the same email already exists
+     */
+    public void insertUser(User user) throws ExistingEntityConflictException {
+<span class="fc" id="L81">        String email = user.getEmail().toLowerCase();</span>
+
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (this.usersByEmail.containsKey(email)) {</span>
+<span class="fc" id="L84">            throw new ExistingEntityConflictException(&quot;User with email &quot; + email + &quot; already exists.&quot;);</span>
+        }
+
+<span class="fc" id="L87">        this.usersByCode.put(user.getCode(), user);</span>
+<span class="fc" id="L88">        this.usersByEmail.put(email, user);</span>
+<span class="fc" id="L89">    }</span>
+
+    /**
+     * Removes a user by their code.
+     *
+     * @param code the code of the user to be removed
+     * @throws EntityDoesNotExistException if the user does not exist
+     */
+    public void removeUserByCode(UUID code) throws EntityDoesNotExistException {
+
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        if (!this.usersByCode.containsKey(code)) {</span>
+<span class="fc" id="L100">            throw new EntityDoesNotExistException(&quot;User with code &quot; + code + &quot; does not exist.&quot;);</span>
+        }
+
+<span class="fc" id="L103">        User user = this.usersByCode.get(code);</span>
+<span class="fc" id="L104">        this.usersByCode.remove(code);</span>
+<span class="fc" id="L105">        this.usersByEmail.remove(user.getEmail().toLowerCase()); //TEM DE SER PASSADO EM MINUSCULAS</span>
+        //this.usersByEmail.remove(user.getEmail());
+<span class="fc" id="L107">    }</span>
+
+    /**
+     * Removes a user by their email.
+     *
+     * @param email the email of the user to be removed
+     * @throws EntityDoesNotExistException if the user does not exist
+     */
+    public void removeUserByEmail(String email) throws EntityDoesNotExistException {
+<span class="fc" id="L116">        email= email.toLowerCase(); //ISTO N ESTAVA AQUI SEM ISTO NUNCA VAI REMOVER O USER</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        if (!this.usersByEmail.containsKey(email)) {</span>
+<span class="fc" id="L118">            throw new EntityDoesNotExistException(&quot;User with code &quot; + email + &quot; does not exist.&quot;);</span>
+        }
+
+<span class="fc" id="L121">        User user = this.usersByEmail.get(email);</span>
+<span class="fc" id="L122">        this.usersByEmail.remove(email);</span>
+<span class="fc" id="L123">        this.usersByCode.remove(user.getCode());</span>
+<span class="fc" id="L124">    }</span>
+
+    /**
+     * Checks if a user with the specified email exists.
+     *
+     * @param email the email to check
+     * @return true if a user with the email exists, false otherwise
+     */
+    public boolean existsUserWithEmail(String email) {
+<span class="fc" id="L133">        return this.usersByEmail.containsKey(email.toLowerCase());</span>
+    }
+
+    /**
+     * Retrieves a user by their code.
+     *
+     * @param code the code of the user
+     * @return the user with the specified code
+     * @throws EntityDoesNotExistException if the user does not exist
+     */
+    public User getUserByCode(UUID code) throws EntityDoesNotExistException {
+<span class="fc" id="L144">        User user = this.usersByCode.get(code);</span>
+
+<span class="fc bfc" id="L146" title="All 2 branches covered.">        if (user == null) {</span>
+<span class="fc" id="L147">            throw new EntityDoesNotExistException(&quot;User with code &quot; + code + &quot; does not exist.&quot;);</span>
+        }
+
+<span class="fc" id="L150">        return user;</span>
+    }
+
+    /**
+     * Retrieves a user by their email.
+     *
+     * @param email the email of the user
+     * @return the user with the specified email
+     * @throws EntityDoesNotExistException if the user does not exist
+     */
+    public User getUserByEmail(String email) throws EntityDoesNotExistException {
+<span class="fc" id="L161">        email = email.toLowerCase();</span>
+<span class="fc" id="L162">        User user = this.usersByEmail.get(email);</span>
+
+<span class="fc bfc" id="L164" title="All 2 branches covered.">        if (user == null) {</span>
+<span class="fc" id="L165">            throw new EntityDoesNotExistException(&quot;User with email &quot; + email + &quot; does not exist.&quot;);</span>
+        }
+
+<span class="fc" id="L168">        return user;</span>
+    }
+
+    /**
+     * Updates the information of a user.
+     *
+     * @param user the user to update
+     * @throws EntityDoesNotExistException if the user does not exist
+     */
+    public void updateUser(User user) throws EntityDoesNotExistException {
+<span class="fc" id="L178">        UUID code = user.getCode();</span>
+<span class="pc bpc" id="L179" title="1 of 2 branches missed.">        if (!this.usersByCode.containsKey(code)) {</span>
+<span class="nc" id="L180">            throw new EntityDoesNotExistException(&quot;User with code &quot; + code + &quot; does not exist.&quot;);</span>
+        }
+
+<span class="fc" id="L183">        String email = user.getEmail().toLowerCase();</span>
+<span class="fc" id="L184">        User existingUser = this.usersByEmail.get(email);</span>
+
+<span class="pc bpc" id="L186" title="2 of 4 branches missed.">        if (existingUser == null || !existingUser.getCode().equals(code)) {</span>
+<span class="nc" id="L187">            throw new EntityDoesNotExistException(&quot;User with email &quot; + email + &quot; does not exist.&quot;);</span>
+        }
+
+<span class="fc" id="L190">        this.usersByCode.put(code, user);</span>
+<span class="fc" id="L191">        this.usersByEmail.put(email, user);</span>
+<span class="fc" id="L192">    }</span>
+
+    /**
+     * Retrieves a list of all users.
+     *
+     * @return a list of all users
+     */
+    public List&lt;User&gt; getAllUsers() {
+<span class="fc" id="L200">        return new ArrayList&lt;&gt;(this.usersByCode.values());</span>
+    }
+
+    /**
+     * Retrieves a list of all activities from a user.
+     *
+     * @param email the user's email address
+     * @return a list of all activities from the user
+     */
+    public List&lt;Activity&gt; getActivitiesFromUser(String email) throws EntityDoesNotExistException{
+<span class="fc" id="L210">        email = email.toLowerCase();</span>
+<span class="pc bpc" id="L211" title="1 of 2 branches missed.">        if(!this.usersByEmail.containsKey(email)){</span>
+<span class="nc" id="L212">            throw new EntityDoesNotExistException(email);</span>
+        }
+<span class="fc" id="L214">        return this.usersByEmail.get(email).getListActivities();</span>
+    }
+
+    /**
+     * Adds an activity to a user.
+     *
+     * @param email the user's email
+     * @param activity the activity to be added
+     */
+    public void addActivityToUser(String email, Activity activity) {
+<span class="fc" id="L224">        email = email.toLowerCase();</span>
+<span class="fc" id="L225">        usersByEmail.get(email).addActivity(activity);</span>
+<span class="fc" id="L226">    }</span>
+
+    /**
+     * Removes an activity from a user.
+     *
+     * @param email the user's email
+     * @param activityCode the activity code
+     */
+    public void removeActivityFromUser(String email, UUID activityCode) {
+<span class="fc" id="L235">        email = email.toLowerCase();</span>
+<span class="fc" id="L236">        usersByEmail.get(email).removeActivity(activityCode);</span>
+<span class="fc" id="L237">    }</span>
+
+    /**
+     * Adds a list of activities to a user.
+     *
+     * @param userCode the user's code
+     * @param activities the activities to be added
+     */
+    public void addActivitiesToUser(UUID userCode, List&lt;Activity&gt; activities) {
+<span class="fc" id="L246">        usersByCode.get(userCode).addActivities(activities);</span>
+<span class="fc" id="L247">    }</span>
+
+    /**
+     * Updates the system.
+     */
+    public void updateSystem() {
+<span class="fc bfc" id="L253" title="All 2 branches covered.">        for (User user : usersByCode.values()) {</span>
+<span class="fc" id="L254">            user.updateActivities();</span>
+<span class="fc bfc" id="L255" title="All 2 branches covered.">            if(user instanceof Professional) {</span>
+<span class="fc" id="L256">                ((Professional) user).updateSpecialization();</span>
+            }
+<span class="fc" id="L258">        }</span>
+<span class="fc" id="L259">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

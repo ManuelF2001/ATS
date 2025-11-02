@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TrainingPlanManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">poo-projeto</a> &gt; <a href="index.source.html" class="el_package">MakeItFit.trainingPlan</a> &gt; <span class="el_source">TrainingPlanManager.java</span></div><h1>TrainingPlanManager.java</h1><pre class="source lang-java linenums">package MakeItFit.trainingPlan;
+
+import MakeItFit.activities.Activity;
+import MakeItFit.activities.ActivityManager;
+import MakeItFit.activities.HardInterface;
+import MakeItFit.activities.implementation.*;
+import MakeItFit.exceptions.EntityDoesNotExistException;
+import MakeItFit.utils.MakeItFitDate;
+import MakeItFit.utils.MyTuple;
+
+import java.io.Serializable;
+import java.util.*;
+
+/**
+ * The class TrainingPlanManager represents a manager of training plans.
+ *
+ * @author  Afonso Santos (a104276), Hélder Gomes (a104100) and Pedro Pereira (a104082)
+ * @version (11052024)
+ */
+public class TrainingPlanManager implements Serializable {
+
+    private Map&lt;UUID, TrainingPlan&gt; trainingPlans;
+
+<span class="fc" id="L24">    public TrainingPlanManager() {</span>
+<span class="fc" id="L25">        this.trainingPlans = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L26">    }</span>
+
+    /**
+     * Creates a new training plan.
+     *
+     * @param userCode the code of the user
+     * @param startDate the date that the training plan starts
+     * @return the planing train created
+     * @throws IllegalArgumentException if any argument is null
+     */
+    public TrainingPlan createTrainingPlan(UUID userCode, MakeItFitDate startDate) throws IllegalArgumentException {
+
+<span class="fc bfc" id="L38" title="All 4 branches covered.">        if (userCode == null || startDate == null) {</span>
+<span class="fc" id="L39">            throw new IllegalArgumentException(&quot;Invalid input: userCode, startDate.&quot;);</span>
+        }
+
+<span class="fc" id="L42">        TrainingPlan trainingPlan = new TrainingPlan(userCode, startDate);</span>
+<span class="fc" id="L43">        return trainingPlan;</span>
+    }
+
+    /**
+     * Constructs a new training plan by objectives.
+     *
+     * @param trainingPlan The training plan in usage.
+     * @param index The index of the user.
+     * @param hardActivities if the activities are hard
+     * @param maxActivitiesPerDay the maximum number of activities per day
+     * @param maxDifferentActivities the maximum number of different activities
+     * @param weeklyRecurrence the weekly recurrence
+     * @param minimumCaloricWaste the minimum caloric waste
+     * @return the planing train created
+     * @throws IllegalArgumentException if any argument is invalid
+     */
+    public TrainingPlan constructTrainingPlanByObjectives(TrainingPlan trainingPlan, float index, boolean hardActivities, int maxActivitiesPerDay, int maxDifferentActivities, int weeklyRecurrence, int minimumCaloricWaste) throws IllegalArgumentException {
+
+<span class="fc bfc" id="L61" title="All 12 branches covered.">        if (maxActivitiesPerDay &lt; 0 || maxActivitiesPerDay &gt; 3 || maxDifferentActivities &lt; 0 || weeklyRecurrence &lt; 0 || weeklyRecurrence &gt; 7 || minimumCaloricWaste &lt; 0) {</span>
+<span class="fc" id="L62">            throw new IllegalArgumentException(&quot;Invalid input.&quot;);</span>
+        }
+
+<span class="fc" id="L65">        int totalCaloricWaste = 0;</span>
+<span class="fc" id="L66">        int activitiesAddedToday = 0;</span>
+<span class="fc" id="L67">        int daysWithActivitiesThisWeek = 0;</span>
+<span class="fc" id="L68">        int startDayOfWeek = trainingPlan.getStartDate().getDayOfWeek();</span>
+<span class="fc" id="L69">        boolean hardActivityAddedYesterday = false;</span>
+<span class="fc" id="L70">        boolean hardActivityAddedToday = false;</span>
+<span class="fc" id="L71">        boolean newWeek = false;</span>
+<span class="fc" id="L72">        boolean addedActivity = false;</span>
+
+<span class="fc" id="L74">        ActivityManager activityManager = new ActivityManager();</span>
+<span class="fc" id="L75">        MakeItFitDate currentDate = trainingPlan.getStartDate();</span>
+<span class="fc" id="L76">        Random random = new Random();</span>
+        
+<span class="fc" id="L78">        Set&lt;String&gt; differentActivityTypes = new HashSet&lt;&gt;();</span>
+
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        while (totalCaloricWaste &lt; minimumCaloricWaste) {</span>
+
+<span class="fc" id="L82">            String activityType = activityManager.getRandomActivity();</span>
+            Activity activity;
+
+<span class="fc bfc" id="L85" title="All 4 branches covered.">            while (differentActivityTypes.size() == maxDifferentActivities &amp;&amp; !differentActivityTypes.contains(activityType)) {</span>
+<span class="fc" id="L86">                activityType = activityManager.getRandomActivity();</span>
+            }
+
+<span class="pc bpc" id="L89" title="1 of 5 branches missed.">            switch (activityType) {</span>
+                case &quot;PushUp&quot; -&gt; {
+<span class="fc" id="L91">                    int expectedDuration = random.nextInt(10, 40);</span>
+<span class="fc" id="L92">                    int repetitions = random.nextInt(5, 20);</span>
+<span class="fc" id="L93">                    int series = random.nextInt(1, 5);</span>
+<span class="fc" id="L94">                    activity = new PushUp(trainingPlan.getUserCode(), currentDate, expectedDuration, &quot;PushUp created automatically&quot;, activityType, repetitions, series);</span>
+<span class="fc" id="L95">                }</span>
+                case &quot;Running&quot; -&gt; {
+<span class="fc" id="L97">                    int expectedDuration = random.nextInt(10, 40);</span>
+<span class="fc" id="L98">                    double distance = random.nextInt(500, 5000);</span>
+<span class="fc" id="L99">                    double speed = random.nextInt(5, 20);</span>
+<span class="fc" id="L100">                    activity = new Running(trainingPlan.getUserCode(), currentDate, expectedDuration, &quot;Running created automatically&quot;, activityType, distance, speed);</span>
+<span class="fc" id="L101">                }</span>
+                case &quot;Trail&quot; -&gt; {
+<span class="fc" id="L103">                    int expectedDuration = random.nextInt(10, 40);</span>
+<span class="fc" id="L104">                    int distance = random.nextInt(500, 5000);</span>
+<span class="fc" id="L105">                    int elevationGain = random.nextInt(0, 800);</span>
+<span class="fc" id="L106">                    int elevationLoss = random.nextInt(0, 800);</span>
+<span class="fc" id="L107">                    int trailType = random.nextInt(1, 3);</span>
+<span class="fc" id="L108">                    activity = new Trail(trainingPlan.getUserCode(), currentDate, expectedDuration, &quot;Trail created automatically&quot;, activityType, distance, elevationGain, elevationLoss, trailType);</span>
+<span class="fc" id="L109">                }</span>
+                case &quot;WeightSquat&quot; -&gt; {
+<span class="fc" id="L111">                    int expectedDuration = random.nextInt(10, 40);</span>
+<span class="fc" id="L112">                    int repetitions = random.nextInt(5, 20);</span>
+<span class="fc" id="L113">                    int series = random.nextInt(1, 5);</span>
+<span class="fc" id="L114">                    double weight = random.nextInt(5, 80);</span>
+<span class="fc" id="L115">                    activity = new WeightSquat(trainingPlan.getUserCode(), currentDate, expectedDuration, &quot;WeightSquat created automatically&quot;, activityType, repetitions, series, weight);</span>
+<span class="fc" id="L116">                }</span>
+<span class="nc" id="L117">                default -&gt; throw new IllegalArgumentException(&quot;Invalid type.&quot;);</span>
+            }
+
+<span class="fc bfc" id="L120" title="All 4 branches covered.">            if (!hardActivities &amp;&amp; activity instanceof HardInterface) {</span>
+<span class="fc" id="L121">                continue;</span>
+            }
+
+<span class="fc bfc" id="L124" title="All 4 branches covered.">            if (hardActivities &amp;&amp; activity instanceof HardInterface) {</span>
+<span class="pc bpc" id="L125" title="1 of 4 branches missed.">                if (hardActivityAddedYesterday || hardActivityAddedToday) {</span>
+<span class="fc" id="L126">                    continue;</span>
+                }
+            }
+
+<span class="fc bfc" id="L130" title="All 4 branches covered.">            if (activitiesAddedToday &lt; maxActivitiesPerDay &amp;&amp; daysWithActivitiesThisWeek &lt; weeklyRecurrence) {</span>
+<span class="fc" id="L131">                differentActivityTypes.add(activityType);</span>
+<span class="fc" id="L132">                trainingPlan.addActivity(random.nextInt(1, 4), activity);</span>
+<span class="fc" id="L133">                totalCaloricWaste += activity.caloricWaste(index);</span>
+<span class="fc" id="L134">                activitiesAddedToday++;</span>
+<span class="fc" id="L135">                addedActivity = true;</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">                if (activity instanceof HardInterface) {</span>
+<span class="fc" id="L137">                    hardActivityAddedToday = true;</span>
+                }
+            } else {
+<span class="fc" id="L140">                currentDate = currentDate.plusDays(1);</span>
+<span class="fc" id="L141">                newWeek = true;</span>
+<span class="fc" id="L142">                activitiesAddedToday = 0;</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">                if(addedActivity){</span>
+<span class="fc" id="L144">                    daysWithActivitiesThisWeek++;</span>
+                }
+<span class="fc" id="L146">                addedActivity = false;</span>
+            }
+
+<span class="fc bfc" id="L149" title="All 4 branches covered.">            if ((currentDate.getDayOfWeek() == startDayOfWeek) &amp;&amp; newWeek) {</span>
+<span class="fc" id="L150">                daysWithActivitiesThisWeek = 0;</span>
+<span class="fc" id="L151">                hardActivityAddedYesterday = hardActivityAddedToday;</span>
+<span class="fc" id="L152">                hardActivityAddedToday = false;</span>
+<span class="fc" id="L153">                newWeek = false;</span>
+            }
+<span class="fc" id="L155">        }</span>
+<span class="fc" id="L156">        return trainingPlan;</span>
+    }
+
+    /**
+     * Inserts a training plan into the manager.
+     *
+     * @param trainingPlan the training plan to be inserted
+     */
+    public void insertTrainingPlan(TrainingPlan trainingPlan) throws IllegalArgumentException {
+
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">        if (trainingPlan == null) {</span>
+<span class="nc" id="L167">            throw new IllegalArgumentException(&quot;Invalid input: trainingPlan cannot be null.&quot;);</span>
+        }
+
+<span class="fc bfc" id="L170" title="All 2 branches covered.">        if(this.trainingPlans.containsKey(trainingPlan.getCode())){</span>
+<span class="fc" id="L171">            throw new IllegalArgumentException(&quot;Training with code &quot; + trainingPlan.getCode() + &quot; already exists.&quot;);</span>
+        }
+
+<span class="fc" id="L174">        this.trainingPlans.put(trainingPlan.getCode(), trainingPlan);</span>
+<span class="fc" id="L175">    }</span>
+
+    /**
+     * Removes a training plan by the user code.
+     *
+     * @param code the code of the user
+     */
+    public void removeTrainingPlan(UUID code){
+<span class="fc" id="L183">        this.trainingPlans.remove(code);</span>
+<span class="fc" id="L184">    }</span>
+
+    /**
+     * Returns the training plan by the code.
+     *
+     * @param code the code of the user
+     * @return the training plan by the user code
+     * @throws IllegalArgumentException if the training plan does not exist
+     */
+    public TrainingPlan getTrainingPlan(UUID code) throws IllegalArgumentException {
+<span class="fc" id="L194">        TrainingPlan trainingPlan = this.trainingPlans.get(code);</span>
+
+<span class="fc bfc" id="L196" title="All 2 branches covered.">        if(trainingPlan == null){</span>
+<span class="fc" id="L197">            throw new IllegalArgumentException(&quot;Training with code &quot; + code + &quot; does not exist.&quot;);</span>
+        }
+
+<span class="fc" id="L200">        return trainingPlan;</span>
+    }
+
+    /**
+     * Updates the training plan.
+     *
+     * @param trainingPlan the training plan to be updated
+     * @throws EntityDoesNotExistException if the training plan does not exist
+     */
+    public void updateTrainingPlan(TrainingPlan trainingPlan) throws EntityDoesNotExistException{
+<span class="fc" id="L210">        UUID code = trainingPlan.getCode();</span>
+<span class="fc bfc" id="L211" title="All 2 branches covered.">        if (!this.trainingPlans.containsKey(code)) {</span>
+<span class="fc" id="L212">            throw new EntityDoesNotExistException(&quot;Training Plan with code &quot; + code + &quot; does not exist.&quot;);</span>
+        }
+
+<span class="fc" id="L215">        this.trainingPlans.put(code, trainingPlan);</span>
+<span class="fc" id="L216">    }</span>
+
+    /**
+     * Retrieves a list of all training plans.
+     *
+     * @return a list of all training plans
+     */
+    public List&lt;TrainingPlan&gt; getAllTrainingPlans(){
+<span class="fc" id="L224">        return new ArrayList&lt;&gt;(this.trainingPlans.values());</span>
+    }
+
+    /**
+     * Adds an activity to a specific training plan.
+     *
+     * @param repetitions the number of repetitions
+     * @param activity the activity to add
+     */
+    public void addActivity(UUID code, int repetitions, Activity activity) {
+<span class="fc" id="L234">        this.trainingPlans.get(code).addActivity(repetitions, activity);</span>
+<span class="fc" id="L235">    }</span>
+
+    /**
+     * Removes an activity from a specific training plan.
+     * 
+     * @param code the code of the training plan
+     * @param activity the code of the activity to remove
+     */
+    public void removeActivity(UUID code, UUID activity) {
+<span class="fc" id="L244">        this.trainingPlans.get(code).removeActivity(activity);</span>
+<span class="fc" id="L245">    }</span>
+
+    /**
+     * Retrieves a list of all training plans from a user.
+     *
+     * @param userCode the code of the user
+     * @return a list of all training plans from the user
+     */
+    public List&lt;TrainingPlan&gt; getTrainingPlansFromUser(UUID userCode){
+<span class="fc" id="L254">        List&lt;TrainingPlan&gt; trainingPlans = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L256" title="All 2 branches covered.">        for(TrainingPlan trainingPlan : this.trainingPlans.values()){</span>
+<span class="pc bpc" id="L257" title="1 of 2 branches missed.">            if(trainingPlan.getUserCode().equals(userCode)){</span>
+<span class="fc" id="L258">                trainingPlans.add(trainingPlan);</span>
+            }
+<span class="fc" id="L260">        }</span>
+<span class="fc" id="L261">        return trainingPlans;</span>
+    }
+
+    /**
+     * Updates the system.
+     *
+     * @param currentDate the current date
+     */
+    public void updateActivities(MakeItFitDate currentDate, float index){
+<span class="fc bfc" id="L270" title="All 2 branches covered.">        for(TrainingPlan trainingPlan : this.trainingPlans.values()){</span>
+<span class="fc" id="L271">            trainingPlan.updateActivities(currentDate, index);</span>
+<span class="fc" id="L272">        }</span>
+<span class="fc" id="L273">    }</span>
+
+    /**
+     * Extracts the activities of the user.
+     *
+     * @param currentDate the current date
+     * @param userCode the code of the user
+     * @return a list of activities
+     */
+    public List&lt;Activity&gt; extractActivities(MakeItFitDate currentDate, UUID userCode) {
+<span class="fc" id="L283">        List&lt;Activity&gt; activities = new ArrayList&lt;Activity&gt;();</span>
+<span class="fc bfc" id="L284" title="All 2 branches covered.">        for (TrainingPlan trainingPlan : this.trainingPlans.values()) {</span>
+<span class="pc bpc" id="L285" title="1 of 2 branches missed.">            if (trainingPlan.getUserCode().equals(userCode)) {</span>
+<span class="fc" id="L286">                activities.addAll(trainingPlan.extractActivities(currentDate));</span>
+            }
+<span class="fc" id="L288">        }</span>
+<span class="fc" id="L289">        return activities;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

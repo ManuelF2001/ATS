@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.058" tests="100" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="24"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\manue\Desktop\GrupoTP-2-main\GrupoTP-2-main\target\test-classes;C:\Users\manue\Desktop\GrupoTP-2-main\GrupoTP-2-main\target\classes;C:\Users\manue\.m2\repository\net\jqwik\jqwik\1.8.4\jqwik-1.8.4.jar;C:\Users\manue\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\manue\.m2\repository\net\jqwik\jqwik-api\1.8.4\jqwik-api-1.8.4.jar;C:\Users\manue\.m2\repository\net\jqwik\jqwik-web\1.8.4\jqwik-web-1.8.4.jar;C:\Users\manue\.m2\repository\net\jqwik\jqwik-time\1.8.4\jqwik-time-1.8.4.jar;C:\Users\manue\.m2\repository\net\jqwik\jqwik-engine\1.8.4\jqwik-engine-1.8.4.jar;C:\Users\manue\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\manue\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\manue\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\manue\.m2\repository\org\junit\jupiter\junit-jupiter\5.9.3\junit-jupiter-5.9.3.jar;C:\Users\manue\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.3\junit-jupiter-params-5.9.3.jar;C:\Users\manue\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.3\junit-jupiter-engine-5.9.3.jar;C:\Users\manue\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;C:\Users\manue\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\manue\.m2\repository\net\bytebuddy\byte-buddy\1.12.21\byte-buddy-1.12.21.jar;C:\Users\manue\.m2\repository\org\pitest\pitest-junit5-plugin\1.2.1\pitest-junit5-plugin-1.2.1.jar;C:\Users\manue\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Lisbon"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="24"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="PT"/>
+    <property name="sun.boot.library.path" value="C:\Users\manue\.jdks\openjdk-24.0.1\bin"/>
+    <property name="sun.java.command" value="C:\Users\manue\AppData\Local\Temp\surefire2612324298314050924\surefirebooter-20250605121225213_3.jar C:\Users\manue\AppData\Local\Temp\surefire2612324298314050924 2025-06-05T12-12-25_016-jvmRun1 surefire-20250605121225213_1tmp surefire_0-20250605121225213_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\manue\Desktop\GrupoTP-2-main\GrupoTP-2-main\target\test-classes;C:\Users\manue\Desktop\GrupoTP-2-main\GrupoTP-2-main\target\classes;C:\Users\manue\.m2\repository\net\jqwik\jqwik\1.8.4\jqwik-1.8.4.jar;C:\Users\manue\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\manue\.m2\repository\net\jqwik\jqwik-api\1.8.4\jqwik-api-1.8.4.jar;C:\Users\manue\.m2\repository\net\jqwik\jqwik-web\1.8.4\jqwik-web-1.8.4.jar;C:\Users\manue\.m2\repository\net\jqwik\jqwik-time\1.8.4\jqwik-time-1.8.4.jar;C:\Users\manue\.m2\repository\net\jqwik\jqwik-engine\1.8.4\jqwik-engine-1.8.4.jar;C:\Users\manue\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\manue\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\manue\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\manue\.m2\repository\org\junit\jupiter\junit-jupiter\5.9.3\junit-jupiter-5.9.3.jar;C:\Users\manue\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.3\junit-jupiter-params-5.9.3.jar;C:\Users\manue\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.3\junit-jupiter-engine-5.9.3.jar;C:\Users\manue\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;C:\Users\manue\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\manue\.m2\repository\net\bytebuddy\byte-buddy\1.12.21\byte-buddy-1.12.21.jar;C:\Users\manue\.m2\repository\org\pitest\pitest-junit5-plugin\1.2.1\pitest-junit5-plugin-1.2.1.jar;C:\Users\manue\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\manue"/>
+    <property name="user.language" value="pt"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-04-15"/>
+    <property name="java.home" value="C:\Users\manue\.jdks\openjdk-24.0.1"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\manue\Desktop\GrupoTP-2-main\GrupoTP-2-main"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\manue\AppData\Local\Temp\surefire2612324298314050924\surefirebooter-20250605121225213_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="24.0.1+9-30"/>
+    <property name="user.name" value="manue"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\manue\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\manue\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2024.2.4"/>
+    <property name="java.version" value="24.0.1"/>
+    <property name="user.dir" value="C:\Users\manue\Desktop\GrupoTP-2-main\GrupoTP-2-main"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\manue\.jdks\openjdk-24.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Users\manue\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk-23.0.1\bin;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\CMake\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\dotnet\;C:\Users\manue\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk-23.0.1\bin;C:\Program Files\Graphviz\bin;C:\Users\manue\.dotnet\tools;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="24.0.1+9-30"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="68.0"/>
+  </properties>
+  <testcase name="testPlanoInvalido_74_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_27_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_25_startDate_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_68_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_84_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_83_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_82_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_81_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_10_minimumCaloricWaste_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_53_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_89_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_58_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_42_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_96_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_99_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_0_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_36_startDate_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_17_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_48_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_18_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_97_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_19_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_34_minimumCaloricWaste_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_95_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_39_minimumCaloricWaste_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_6_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_52_startDate_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_55_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_85_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_62_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_94_startDate_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_9_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_64_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.002"/>
+  <testcase name="testPlanoInvalido_77_startDate_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_51_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_47_minimumCaloricWaste_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_65_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_32_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_69_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_35_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_7_startDate_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_22_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_57_minimumCaloricWaste_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_24_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_26_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_72_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_11_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.002"/>
+  <testcase name="testPlanoInvalido_4_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_88_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_86_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_1_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_92_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_15_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_73_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_21_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_16_startDate_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_28_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_79_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_78_minimumCaloricWaste_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_33_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_3_minimumCaloricWaste_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_8_minimumCaloricWaste_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_76_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_30_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_2_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_66_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_98_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_20_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_37_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_40_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_43_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_23_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_49_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_91_minimumCaloricWaste_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_75_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_31_startDate_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_54_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_90_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_14_startDate_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_56_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_59_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_29_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_13_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_41_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_80_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_60_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_12_maxDifferentActivities_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_61_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_63_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_70_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_44_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_93_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_45_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_87_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_46_maxActivitiesPerDay_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_50_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_5_userCode_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_67_weeklyRecurrence_alto" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.0"/>
+  <testcase name="testPlanoInvalido_71_repetitions_zero_ou_negativo" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+  <testcase name="testPlanoInvalido_38_startDate_null" classname="test_Hypothesis.TrainingPlanInvalidGeneratedTest" time="0.001"/>
+</testsuite>
